@@ -1,6 +1,6 @@
 class Api::V1::CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :update, :destroy]
-
+# http://localhost:3000/v1/companies
   def index
     @companies = Company.all
     render json: { companies: @companies }, except: [:id, :created_at, :updated_at]
@@ -19,6 +19,14 @@ class Api::V1::CompaniesController < ApplicationController
     end
   end
 
+  def delete
+    # if @company.delete(company_params)
+    #   render json: @company
+    # else
+    #   render json: @company.errors, status: :unprocessable_entity
+    # end
+  end 
+  
   def destroy
     @company.destroy
     render json: { deleted_company: @company,
