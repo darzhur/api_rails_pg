@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20170511133555) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "location",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "deleted"
+    t.string   "name"
+    t.string   "location"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "deleted",    default: false
   end
 
   create_table "geeks", force: :cascade do |t|
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20170511133555) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "place",      null: false
-    t.integer  "company_id", null: false
+    t.string   "name"
+    t.string   "place"
+    t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

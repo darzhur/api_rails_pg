@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   scope module: 'api' do
     namespace :v1 do
       # определяем REST запросы
-      Match 'companies/destroy', to: 'companies#delete', via:'post'
       resources :jobs
       resources :companies do
+        match 'mark_deleted', to: '/v1/companies/mark_deleted', via:'post'
         resources :jobs
       end
     end
